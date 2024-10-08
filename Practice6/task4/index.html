@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+</head>
+<body>
+<h1>Find the Closest Value to 100</h1>
+
+<label for="num1">Enter first number:</label>
+<input type="number" id="num1"><br><br>
+
+<label for="num2">Enter second number:</label>
+<input type="number" id="num2"><br><br>
+
+<button onclick="findClosest()">Find Closest</button>
+
+<h3>Result:</h3>
+<p id="closest-result"></p>
+
+<script>
+    function findClosest() {
+        var num1 = parseFloat(document.getElementById('num1').value);
+        var num2 = parseFloat(document.getElementById('num2').value);
+
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("Please enter valid numbers.");
+            return;
+        }
+
+        // Calculate absolute difference from 100
+        var diff1 = Math.abs(100 - num1);
+        var diff2 = Math.abs(100 - num2);
+
+        var result;
+
+        if (diff1 < diff2) {
+            result = num1;
+        } else if (diff2 < diff1) {
+            result = num2;
+        } else {
+            result = "Both are equally close to 100";
+        }
+
+        document.getElementById('closest-result').innerText = "Closest to 100: " + result;
+    }
+</script>
+</body>
+</html>
